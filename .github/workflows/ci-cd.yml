@@ -9,9 +9,6 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
 
-    env:
-      MLFLOW_TRACKING_URI: ${{ github.workspace }}/mlruns
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
