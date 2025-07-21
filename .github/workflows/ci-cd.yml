@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - revert-to-iris
 
 jobs:
   build-and-push:
