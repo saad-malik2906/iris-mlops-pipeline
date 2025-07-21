@@ -8,8 +8,6 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-    env:
-      MLFLOW_TRACKING_URI: file:./mlruns
 
     steps:
       - name: Checkout code

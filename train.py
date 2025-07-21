@@ -1,3 +1,8 @@
+import os
+
+# Set MLflow tracking URI to a safe directory relative to current working dir
+os.environ["MLFLOW_TRACKING_URI"] = os.path.abspath("./mlruns")
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -8,9 +13,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, confusion_matrix
 import joblib
 import mlflow
-import os
 
-os.environ["MLFLOW_TRACKING_URI"] = "file:./mlruns"
 mlflow.set_experiment("digits-experiment")
 
 def train():
