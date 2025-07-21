@@ -1,0 +1,7 @@
+__pycache__/
+*.ipynb
+*.csv
+*.png
+*.log
+mlruns/
+training_log.csv

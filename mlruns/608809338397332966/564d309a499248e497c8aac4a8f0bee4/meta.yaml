@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/DELL/Desktop/Projects/Everything/Project%2007-%20MLOps%20Model%20Training%20and%20Deployment/mlruns/608809338397332966/564d309a499248e497c8aac4a8f0bee4/artifacts
+end_time: 1753107905067
+entry_point_name: ''
+experiment_id: '608809338397332966'
+lifecycle_stage: active
+run_id: 564d309a499248e497c8aac4a8f0bee4
+run_name: Run_20250721_192447
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753107888317
+status: 3
+tags: []
+user_id: DELL
