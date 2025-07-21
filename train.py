@@ -10,6 +10,7 @@ import joblib
 import mlflow
 import os
 
+os.environ["MLFLOW_TRACKING_URI"] = "file:./mlruns"
 mlflow.set_experiment("digits-experiment")
 
 def train():
