@@ -10,7 +10,6 @@ import joblib
 import mlflow
 import os
 
-mlflow.set_tracking_uri("file:///C:/Users/DELL/Desktop/Projects/Everything/Project 07- MLOps Model Training and Deployment/mlruns")
 mlflow.set_experiment("iris-experiment")
 
 def train():
