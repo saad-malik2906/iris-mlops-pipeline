@@ -1,7 +1,11 @@
 import os
 
-# Set MLflow tracking URI to a safe directory relative to current working dir
+print("MLFLOW_TRACKING_URI before setting:", os.getenv("MLFLOW_TRACKING_URI"))
+
+# Set a clean, absolute Linux-friendly path
 os.environ["MLFLOW_TRACKING_URI"] = os.path.abspath("./mlruns")
+
+print("MLFLOW_TRACKING_URI after setting:", os.getenv("MLFLOW_TRACKING_URI"))
 
 import pandas as pd
 import numpy as np
