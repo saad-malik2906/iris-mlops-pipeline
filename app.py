@@ -12,29 +12,35 @@ except Exception as e:
     model = None
 
 # Define FastAPI app
-app = FastAPI(title="Iris Species Prediction API")
+app = FastAPI(title="Digit Recognition API")
 
-# Define input data schema using Pydantic
-class IrisFeatures(BaseModel):
-    sepal_length: float
-    sepal_width: float
-    petal_length: float
-    petal_width: float
+# Define input data schema: exactly 64 float values (8x8 image flattened)
+class DigitFeatures(BaseModel):
+    features: list[float]
 
-# Define the prediction endpoint
+    class Config:
+        schema_extra = {
+            "example": {
+                "features": [0.0] * 64
+            }
+        }
+
+    @classmethod
+    def __get_validators__(cls):
+        yield cls.validate_features
+
+    @staticmethod
+    def validate_features(values):
+        if len(values) != 64:
+            raise ValueError("features must contain exactly 64 float values")
+        return values
+
 @app.post("/predict")
-async def predict(features: IrisFeatures):
+async def predict_digit(input_data: DigitFeatures):
     if model is None:
         raise HTTPException(status_code=503, detail="Model not loaded")
 
-    # Prepare data for prediction (shape: 1 sample, 4 features)
-    data = np.array([[features.sepal_length, features.sepal_width, features.petal_length, features.petal_width]])
-    
-    # Get prediction index
-    pred_idx = model.predict(data)[0]
+    data = np.array(input_data.features).reshape(1, -1)
+    prediction = model.predict(data)[0]
 
-    # Map prediction index to class name
-    target_names = ["setosa", "versicolor", "virginica"]
-    prediction = target_names[pred_idx]
-
-    return {"prediction": prediction}
+    return {"prediction": int(prediction)}
