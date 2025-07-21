@@ -1,0 +1,6 @@
+artifact_location: file:///C:/Users/DELL/Desktop/Projects/Everything/Project%2007-%20MLOps%20Model%20Training%20and%20Deployment/mlruns/833319917503809912
+creation_time: 1753115001997
+experiment_id: '833319917503809912'
+last_update_time: 1753115001997
+lifecycle_stage: active
+name: digits-experiment
